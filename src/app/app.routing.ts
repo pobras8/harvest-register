@@ -6,7 +6,7 @@ import { CheckinComponent }      from './checkin/checkin.component';
 import { GuestFormComponent }      from './guest-form/guest-form.component';
 
 const appRoutes: Routes = [
-  { path: '', component: CheckinComponent },
+  { path: '', component: GuestFormComponent },
   { path: 'admin', component: AdminComponent },
   { path: 'guest', component: GuestFormComponent }
 ];

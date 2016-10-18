@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.form-container {
+  border-radius: 0.25rem;
+  padding: 20px;
+  background-color: rgba(#fff, 0.5);
+  max-height: 900px;
+  overflow-y: auto;
+}
+
+label { margin-bottom: 0; }
+
+.submitBtn {
+  background-color: #E4923B;
+  color: #fff;
+  &:hover {
+    background-color: #cc8234;
+  }
+}
