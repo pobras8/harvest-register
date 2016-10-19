@@ -1,11 +1,22 @@
-.flex-container {
+.router-container {
   display: flex;
   height: 100%;
   align-items: center;
   justify-content: center;
 }
 .router {
-  height: 500px;
-  width: 50%;
-  max-width: 500px;
+  width: 100%;
+  padding: 20px;
+}
+
+@media (min-width:544px) {
+  .router { width: 90%; }
+}
+
+@media (min-width:768px) {
+  .router { width: 75%; }
+}
+
+@media (min-width:992px) {
+  .router { width: 60%; }
 }
