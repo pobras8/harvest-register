@@ -7,10 +7,10 @@ import { GuestFormComponent }      from './guest-form/guest-form.component';
 import { SelectComponent }      from './select/select.component';
 
 const appRoutes: Routes = [
-  { path: '', component: SelectComponent },
-  { path: 'admin', component: AdminComponent },
-  { path: 'checkin', component: CheckinComponent },
-  { path: 'guest', component: GuestFormComponent }
+    { path: '', component: SelectComponent },
+    { path: 'checkin', component: CheckinComponent },
+    { path: 'guest', component: GuestFormComponent },
+    { path: 'admin', component: AdminComponent },
 ];
 
 export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);

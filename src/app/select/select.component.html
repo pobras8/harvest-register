@@ -1,13 +1,14 @@
-<h1>Harvest Check-In</h1>
-<button type="button" class="btn btn-lg btn-block btn-outline-secondary" (click)="select('coveneant')">
-  Covenant Member
-</button>
-<button type="button" class="btn btn-lg btn-block btn-outline-secondary" (click)="select('regular')">
-  Regular Attender
-</button>
-<button type="button" class="btn btn-lg btn-block btn-outline-secondary" (click)="select('returning')">
-  Returning Guest
-</button>
-<button type="button" class="btn btn-lg btn-block btn-outline-secondary guest" (click)="select('first')">
-  First-Time Guest
-</button>
+<div class="select" [@flyInOut]="'in'">
+    <button type="button" class="btn btn-lg btn-block btn-outline-secondary" routerLink="checkin">
+      Covenant Member
+    </button>
+    <button type="button" class="btn btn-lg btn-block btn-outline-secondary" routerLink="checkin">
+      Regular Attender
+    </button>
+    <button type="button" class="btn btn-lg btn-block btn-outline-secondary" routerLink="checkin">
+      Returning Guest
+    </button>
+    <button type="button" class="btn btn-lg btn-block btn-outline-secondary guest" routerLink="guest">
+      First-Time Guest
+    </button>
+</div>

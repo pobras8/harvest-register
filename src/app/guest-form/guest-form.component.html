@@ -1,7 +1,7 @@
-<div class="guest">
-  <h1>First-time Guest</h1>
+<div class="guest" [@flyInOut]="'in'">
   <div class="form-container">
-    <form>
+    <h5>First-Time Guest Form</h5>
+    <form novalidate>
       <div class="form-group row">
         <div class="col-xs-12 col-sm-6">
           <label for="firstName">First Name</label>
@@ -16,7 +16,7 @@
         <label for="email">Email</label>
         <input type="email" class="form-control form-control-lg" id="email">
       </div>
-      <button type="submit" class="btn submitBtn pull-xs-right">Submit</button>
+      <button type="button" class="btn submitBtn pull-xs-right" (click)="submit()">Submit</button>
     </form>
   </div>
 </div>

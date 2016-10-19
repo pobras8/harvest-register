@@ -8,6 +8,11 @@
   width: 100%;
   padding: 20px;
 }
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
 
 @media (min-width:544px) {
   .router { width: 90%; }

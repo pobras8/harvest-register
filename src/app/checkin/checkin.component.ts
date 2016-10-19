@@ -1,4 +1,4 @@
-import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import { Component, OnInit, ViewChild, AfterViewInit, Renderer, ElementRef, trigger, state, style, transition, animate } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,23 +8,33 @@ import { Router } from '@angular/router';
   animations: [
     trigger('flyInOut', [
       state('in', style({transform: 'translateX(0)'})),
-      // transition('void => *', [
-      //   style({transform: 'translateX(100%)'}),
-      //   animate('400ms')
-      // ]),
-      // transition('* => void', [
-      //   style({transform: 'translateX(-100%)'}),
-      //   animate('400ms ease-out')
-      // ])
+      transition('void => *', [
+        style({transform: 'translateX(100%)'}),
+        animate('300ms ease-in')
+      ]),
+      transition('* => void', [
+        style({transform: 'translateX(-100%)'}),
+        animate('300ms ease-out')
+      ])
     ])
   ]
 })
-export class CheckinComponent implements OnInit {
+export class CheckinComponent implements OnInit, AfterViewInit {
+  @ViewChild('searchInput') searchInput: ElementRef;
   search: string;
   showSearch: boolean = false;
-  constructor(private router: Router) { }
+  title: string = "Harvest Check-in";
+
+  constructor(
+    private router: Router,
+    private renderer: Renderer
+  ) { }
 
   ngOnInit() {
+  }
+
+  ngAfterViewInit() {
+    this.renderer.invokeElementMethod(this.searchInput.nativeElement, 'focus');
   }
 
   onKey(event: any) {
