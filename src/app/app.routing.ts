@@ -4,10 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { AdminComponent }      from './admin/admin.component';
 import { CheckinComponent }      from './checkin/checkin.component';
 import { GuestFormComponent }      from './guest-form/guest-form.component';
+import { SelectComponent }      from './select/select.component';
 
 const appRoutes: Routes = [
-  { path: '', component: GuestFormComponent },
+  { path: '', component: SelectComponent },
   { path: 'admin', component: AdminComponent },
+  { path: 'checkin', component: CheckinComponent },
   { path: 'guest', component: GuestFormComponent }
 ];
 

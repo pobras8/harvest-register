@@ -1,0 +1,23 @@
+h1 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 20px;
+}
+.btn-block + .btn-block {
+    margin-top: 1rem;
+}
+.btn-outline-secondary {
+  background-color: rgba(#ffffff, 0.1);
+  color: #fff;
+  &:hover {
+    background-color: rgba(#ffffff, 0.25);
+  }
+}
+.guest {
+  background-color: rgba(#e4923b, 0.75);
+  color: #fff;
+  border-color: #fff;
+  &:hover {
+    background-color: #e4923b;
+  }
+}
