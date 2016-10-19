@@ -1,14 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-checkin',
   templateUrl: './checkin.component.html',
-  styleUrls: ['./checkin.component.scss']
+  styleUrls: ['./checkin.component.scss'],
+  animations: [
+    trigger('flyInOut', [
+      state('in', style({transform: 'translateX(0)'})),
+      // transition('void => *', [
+      //   style({transform: 'translateX(100%)'}),
+      //   animate('400ms')
+      // ]),
+      // transition('* => void', [
+      //   style({transform: 'translateX(-100%)'}),
+      //   animate('400ms ease-out')
+      // ])
+    ])
+  ]
 })
 export class CheckinComponent implements OnInit {
   search: string;
   showSearch: boolean = false;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
   }
@@ -23,7 +37,7 @@ export class CheckinComponent implements OnInit {
   }
 
   doSomething() {
-    console.log('Clicked!');
+    this.router.navigate(['/']);
     // Check in that person/family, show success message, clear search, redirect to Person type selection
   }
 

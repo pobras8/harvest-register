@@ -8,13 +8,15 @@ import { AdminComponent } from './admin/admin.component';
 import { CheckinComponent } from './checkin/checkin.component';
 import { GuestFormComponent } from './guest-form/guest-form.component';
 import { routing } from './app.routing';
+import { SelectComponent } from './select/select.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     CheckinComponent,
-    GuestFormComponent
+    GuestFormComponent,
+    SelectComponent
   ],
   imports: [
     BrowserModule,

@@ -1,32 +1,30 @@
-<div class="checkin-container">
-  <div class="checkin">
-    <h1>Harvest Check-In</h1>
-    <div class="search-container">
-      <div class="form-group">
-        <input type="text" class="form-control form-control-lg" (keyup)="onKey($event)" placeholder="Begin typing your name...">
-      </div>
+<div [@flyInOut]="'in'">
+  <h1>Harvest Check-In</h1>
+  <div class="search-container">
+    <div class="form-group">
+      <input type="text" class="form-control form-control-lg" (keyup)="onKey($event)" placeholder="Begin typing your name...">
     </div>
-    <div class="results-container" *ngIf="showSearch">
-      <table class="table table-striped table-hover results">
-        <tbody>
-          <tr (click)="doSomething()">
-            <td>{{search}}</td>
-            <td>#1234</td>
-          </tr>
-          <tr (click)="doSomething()">
-            <td>{{search}}</td>
-            <td>#1234</td>
-          </tr>
-          <tr (click)="doSomething()">
-            <td>{{search}}</td>
-            <td>#1234</td>
-          </tr>
-          <tr (click)="doSomething()">
-            <td>{{search}}</td>
-            <td>#1234</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+  </div>
+  <div class="results-container" *ngIf="showSearch">
+    <table class="table table-striped table-hover results">
+      <tbody>
+        <tr (click)="doSomething()">
+          <td>{{search}}</td>
+          <td>#1234</td>
+        </tr>
+        <tr (click)="doSomething()">
+          <td>{{search}}</td>
+          <td>#1234</td>
+        </tr>
+        <tr (click)="doSomething()">
+          <td>{{search}}</td>
+          <td>#1234</td>
+        </tr>
+        <tr (click)="doSomething()">
+          <td>{{search}}</td>
+          <td>#1234</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
