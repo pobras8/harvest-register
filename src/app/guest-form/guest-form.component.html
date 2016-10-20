@@ -1,6 +1,6 @@
 <div class="guest" [@flyInOut]="'in'">
   <div class="form-container">
-    <h5>First-Time Guest Form</h5>
+    <h5 style="font-weight:bold;">FIRST-TIME GUEST FORM</h5>
     <form novalidate>
       <div class="form-group row">
         <div class="col-xs-12 col-sm-6">
@@ -11,31 +11,26 @@
           <label for="lastName">Last Name</label>
           <input type="text" class="form-control form-control" id="lastName">
         </div>
-        <legend class="col-form-legend col-xs-12 col-sm-3 col-md-3 col-lg-2" style="padding-bottom:0;">Marital Status</legend>
-        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-10" style="padding:6px 15px 0 0;">
-          <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="maritalStatus" id="married" value="married"> Married
-          </label>
-          <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="maritalStatus" id="single" value="single"> Single
-          </label>
-        </div>
       </div>
-      <div class="form-group">
-        <label for="email">Email</label>
-        <input type="email" class="form-control form-control" id="email">
+      <div class="form-group row">
+        <div class="col-xs-12 col-sm-6">
+          <label for="email">Email</label>
+          <input type="email" class="form-control form-control" id="email">
+          <a href="#">+ Add Email</a>
+        </div>
+        <div class="col-xs-12 col-sm-6">
+          <label for="phone">Phone</label>
+          <input type="tel" class="form-control form-control" id="phone">
+          <a href="#">+ Add Phone</a>
+        </div>
       </div>
       <div class="form-group row">
         <div class="col-xs-12">
-          <label for="address1">Address 1</label>
-          <input type="text" class="form-control" id="address1">
-        </div>
-        <div class="col-xs-12">
-          <label for="address2">Address 2</label>
-          <input type="text" class="form-control" id="address2">
+          <label for="address">Address</label>
+          <input type="text" class="form-control" id="address">
         </div>
         <div class="col-xs-5">
-          <label for="city">City/Town</label>
+          <label for="city">City</label>
           <input type="text" class="form-control" id="city">
         </div>
         <div class="col-xs-3">
@@ -45,12 +40,114 @@
           </select>
         </div>
         <div class="col-xs-4">
-          <label for="zip">Zipcode</label>
+          <label for="zip">Zip</label>
           <input type="text" class="form-control" id="zip">
         </div>
       </div>
-      <button type="button" class="btn btn-warning pull-xs-left" (click)="cancel()">Cancel</button>
-      <button type="button" class="btn btn-success pull-xs-right" (click)="submit()">Submit</button>
+      <div class="form-group row">
+        <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">MARITAL STATUS</legend>
+        <div class="col-xs-12">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="maritalStatus" id="single" value="single"> Single
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="maritalStatus" id="singleParent" value="singleParent"> Single Parent
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="maritalStatus" id="married" value="married"> Married
+          </label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">AGE CATEGORY</legend>
+        <div class="col-xs-12">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="jrhigh" value="jrhigh"> Jr High
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="highschool" value="highschool"> High School
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="college" value="college"> College
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="20s" value="20s"> 20's
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="30s" value="30s"> 30's
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="40s" value="40s"> 40's
+          </label>
+        </div>
+        <div class="col-xs-12">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="50s" value="50s"> 50's
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="ageCat" id="60plus" value="60plus"> 60+
+          </label>
+        </div>
+      </div>
+      <div class="form-group row">
+        <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">HOW DID YOU HEAR ABOUT US</legend>
+        <div class="col-xs-12">
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="reference" id="website" value="website"> Website
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="reference" id="friend" value="friend"> Friend
+          </label>
+          <label class="form-check-inline">
+            <input class="form-check-input" type="radio" name="reference" id="other" value="other"> Other
+          </label>
+        </div>
+      </div>
+      <div class="form-group row next-steps" style="border-top:solid 10px rgba(0,0,0,0.5); padding:10px 0; margin:0;">
+        <h5 style="font-weight:bold;">NEXT STEPS <small>(Optional)</small></h5>
+        <div class="col-xs-6" style="padding:0 0 0 20px;">
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" name="nextSteps" id="party" value="">
+            Sign up for <strong>Party with the Pastors!</strong>
+          </label>
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" name="nextSteps" id="baptism" value="">
+            Sign up for <strong>Baptism!</strong>
+          </label>
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" name="nextSteps" id="newsletter" value="">
+            Sign up for <strong>Harvest's Weekly Newsletter!</strong>
+          </label>
+        </div>
+        <div class="col-xs-6">
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" name="nextSteps" id="discoverHarvest" value="">
+            Sign up for <strong>Discover Harvest!</strong>
+          </label>
+          <label class="form-check">
+            <input class="form-check-input" type="checkbox" name="nextSteps" id="serving" value="">
+            Contact me about <strong>Serving!</strong>
+          </label>
+        </div>
+      </div>
+      <div class="form-group row prayer-req" style="border-top:solid 10px rgba(0,0,0,0.5); padding:10px 0; margin:0;">
+        <h5 style="font-weight:bold;">PRAISES & PRAYER REQUESTS <small>(Optional)</small></h5>
+        <textarea class="form-control" id="prayerReq" rows="3"></textarea>
+        <div class="col-xs-12" style="margin-top:10px">
+          <label class="form-check">
+            <input class="form-check-input" type="radio" name="prayerShare" id="churchBody" value="churchBody">
+            Share with the church body (weekly e-newsletter) & with church leadership
+          </label>
+          <label class="form-check">
+            <input class="form-check-input" type="radio" name="prayerShare" id="leadership" value="leadership">
+            Share with church leadership only
+          </label>
+        </div>
+      </div>
+      <div class="form-group text-xs-center" style="border-top:solid 10px rgba(0,0,0,0.5); padding-top:20px; margin-bottom:0;">
+        <button type="button" class="btn btn-success" (click)="submit()">Submit</button>
+        <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
+      </div>
     </form>
   </div>
 </div>

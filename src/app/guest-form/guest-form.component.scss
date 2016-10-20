@@ -2,12 +2,37 @@
   border-radius: 0.25rem;
   padding: 20px;
   background-color: rgba(#fff, 0.5);
-  max-height: 900px;
+  max-height: 625px;
   overflow-y: auto;
 }
-h5 {
-  margin-bottom: 15px;
-  border-bottom: solid 1px rgba(0,0,0,0.25);
-  padding-bottom: 15px;
+.next-steps {
+  label {
+    margin-bottom: 0;
+    line-height: 1em;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 0.9em;
+  }
+}
+input[type="checkbox"] {
+  margin-top: 0;
+  width: 16px;
+  height: 16px;
+}
+input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+.prayer-req {
+  label {
+    margin-bottom: 0;
+    line-height: 1em;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 0.9em;
+  }
+  input[type="radio"] {
+    margin-top: -0.25rem;
+  }
 }
 label { margin-bottom: 0; }

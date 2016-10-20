@@ -9,3 +9,7 @@ html, body {
   background: radial-gradient(ellipse at center, #47bbbd 0%, #2c7171 100%);
   height: 100%;
 }
+
+html * {
+  font-family: 'Open Sans', sans-serif !important;
+}
