@@ -1,6 +1,10 @@
 import { Component, OnInit, trigger, state, style, transition, animate } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { Person } from '../shared/models/person';
+import { Address } from '../shared/models/address';
+import { PrayerRequest } from '../shared/models/prayer-request';
+
 @Component({
   selector: 'app-guest-form',
   templateUrl: './guest-form.component.html',
@@ -20,7 +24,9 @@ import { Router } from '@angular/router';
     ]
 })
 export class GuestFormComponent implements OnInit {
-  stateList: string[] = ["AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID","IL","IN","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"];
+  stateList: string[] = ["IN","AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID","IL","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"];
+  newGuest: Person = new Person();
+
   constructor( private router: Router ) { }
 
   ngOnInit() {
@@ -38,6 +44,7 @@ export class GuestFormComponent implements OnInit {
   submit() {
     // TODO: Call service to save data to DB
     // TODO: Clear out locally saved form data
+    console.log(this.newGuest);
     this.router.navigate(['/']);
   }
 
