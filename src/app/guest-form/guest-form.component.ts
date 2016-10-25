@@ -32,6 +32,14 @@ export class GuestFormComponent implements OnInit {
   ngOnInit() {
   }
 
+  addPhone() {
+      this.newGuest.phones.push('');
+  }
+
+  addEmail() {
+      this.newGuest.emails.push('');
+  }
+
   /** Clears out data and returns to select screen
   */
   cancel() {
@@ -41,10 +49,10 @@ export class GuestFormComponent implements OnInit {
 
   /** Saves the new data to the DB then clears out local data. Returns to select screen on completion
   */
-  submit() {
+  submit({ value, valid }: { value: any, valid: Boolean}) {
     // TODO: Call service to save data to DB
     // TODO: Clear out locally saved form data
-    console.log(this.newGuest);
+    console.log(value, valid);
     this.router.navigate(['/']);
   }
 

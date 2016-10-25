@@ -1,62 +1,66 @@
 <div class="guest" [@flyInOut]="'in'">
   <div class="form-container">
     <h5 style="font-weight:bold;">FIRST-TIME GUEST FORM</h5>
-    <form novalidate>
+    <form novalidate (ngSubmit)="submit(f)" #f="ngForm">
       <div class="form-group row">
         <div class="col-xs-12 col-sm-6">
           <label for="firstName">First Name</label>
-          <input type="text" class="form-control form-control" id="firstName" name="firstName" [(ngModel)]="newGuest.firstName">
+          <input type="text" class="form-control" id="firstName" name="firstName" ngModel>
         </div>
         <div class="col-xs-12 col-sm-6">
           <label for="lastName">Last Name</label>
-          <input type="text" class="form-control form-control" id="lastName" name="lastName" [(ngModel)]="newGuest.lastName">
+          <input type="text" class="form-control" id="lastName" name="lastName" ngModel>
         </div>
       </div>
       <div class="form-group row">
-        <div class="col-xs-12 col-sm-6">
-          <label for="email">Email</label>
-          <input type="email" class="form-control form-control" id="email">
-          <a href="#">+ Add Email</a>
+        <div class="col-xs-12 col-sm-6" ngModelGroup="emails">
+          <label for="email">Email(s)</label>
+          <div *ngFor="let email of newGuest.emails; let i = index;">
+            <input type="Email" class="form-control" name="{{i}}" ngModel>
+          </div>
+          <button type="button" class="btn btn-sm" (click)="addEmail()">+ Add Email</button>
         </div>
-        <div class="col-xs-12 col-sm-6">
-          <label for="phone">Phone</label>
-          <input type="tel" class="form-control form-control" id="phone">
-          <a href="#">+ Add Phone</a>
+        <div class="col-xs-12 col-sm-6" ngModelGroup="phones">
+          <label for="phone">Phone(s)</label>
+          <div *ngFor="let phone of newGuest.phones; let i = index;">
+            <input type="tel" class="form-control" name="{{i}}" ngModel>
+          </div>
+          <button type="button" class="btn btn-sm" (click)="addPhone()">+ Add Phone</button>
         </div>
       </div>
-      <div class="form-group row">
+      <div class="form-group row" ngModelGroup="address">
         <div class="col-xs-12">
           <label for="address">Address</label>
-          <input type="text" class="form-control" id="address" name="address" [(ngModel)]="newGuest.address.line1">
+          <input type="text" class="form-control" id="address" name="line1" ngModel>
         </div>
         <div class="col-xs-5">
           <label for="city">City</label>
-          <input type="text" class="form-control" id="city" name="city" [(ngModel)]="newGuest.address.city">
+          <input type="text" class="form-control" id="city" name="city" ngModel>
         </div>
         <div class="col-xs-3">
           <label for="state">State</label>
-          <select class="form-control" name="state" name="state" [(ngModel)]="newGuest.address.state">
+          <select class="form-control" name="state" name="state" ngModel>
             <option *ngFor="let s of stateList" value="{{s}}">{{s}}</option>
           </select>
         </div>
         <div class="col-xs-4">
           <label for="zip">Zip</label>
-          <input type="text" class="form-control" id="zip" name="zip" [(ngModel)]="newGuest.address.zip">
+          <input type="text" class="form-control" id="zip" name="zip" ngModel>
         </div>
       </div>
       <div class="form-group row">
         <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">MARITAL STATUS</legend>
         <div class="col-xs-12">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="maritalStatus" id="single" value="single" [(ngModel)]="newGuest.marital">
+            <input class="form-check-input" type="radio" name="marital" id="single" value="single" ngModel>
             Single
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="maritalStatus" id="singleParent" value="singleParent" [(ngModel)]="newGuest.marital">
+            <input class="form-check-input" type="radio" name="marital" id="singleParent" value="singleParent" ngModel>
             Single Parent
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="maritalStatus" id="married" value="married" [(ngModel)]="newGuest.marital">
+            <input class="form-check-input" type="radio" name="marital" id="married" value="married" ngModel>
             Married
           </label>
         </div>
@@ -65,30 +69,30 @@
         <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">AGE CATEGORY</legend>
         <div class="col-xs-12">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="jrhigh" value="jrhigh" [(ngModel)]="newGuest.ageCat"> Jr High
+            <input class="form-check-input" type="radio" name="ageCat" id="jrhigh" value="jrhigh" ngModel> Jr High
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="highschool" value="highschool" [(ngModel)]="newGuest.ageCat"> High School
+            <input class="form-check-input" type="radio" name="ageCat" id="highschool" value="highschool" ngModel> High School
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="college" value="college" [(ngModel)]="newGuest.ageCat"> College
+            <input class="form-check-input" type="radio" name="ageCat" id="college" value="college" ngModel> College
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="20s" value="20s" [(ngModel)]="newGuest.ageCat"> 20's
+            <input class="form-check-input" type="radio" name="ageCat" id="20s" value="20s" ngModel> 20's
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="30s" value="30s" [(ngModel)]="newGuest.ageCat"> 30's
+            <input class="form-check-input" type="radio" name="ageCat" id="30s" value="30s" ngModel> 30's
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="40s" value="40s" [(ngModel)]="newGuest.ageCat"> 40's
+            <input class="form-check-input" type="radio" name="ageCat" id="40s" value="40s" ngModel> 40's
           </label>
         </div>
         <div class="col-xs-12">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="50s" value="50s" [(ngModel)]="newGuest.ageCat"> 50's
+            <input class="form-check-input" type="radio" name="ageCat" id="50s" value="50s" ngModel> 50's
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="ageCat" id="60plus" value="60plus" [(ngModel)]="newGuest.ageCat"> 60+
+            <input class="form-check-input" type="radio" name="ageCat" id="60plus" value="60plus" ngModel> 60+
           </label>
         </div>
       </div>
@@ -96,39 +100,39 @@
         <legend class="col-form-legend col-xs-12" style="padding-bottom:0; font-weight:bold;">HOW DID YOU HEAR ABOUT US</legend>
         <div class="col-xs-12">
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="reference" id="website" value="website" [(ngModel)]="newGuest.reference"> Website
+            <input class="form-check-input" type="radio" name="reference" id="website" value="website" ngModel> Website
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="reference" id="friend" value="friend" [(ngModel)]="newGuest.reference"> Friend
+            <input class="form-check-input" type="radio" name="reference" id="friend" value="friend" ngModel> Friend
           </label>
           <label class="form-check-inline">
-            <input class="form-check-input" type="radio" name="reference" id="other" value="other" [(ngModel)]="newGuest.reference"> Other
+            <input class="form-check-input" type="radio" name="reference" id="other" value="other" ngModel> Other
           </label>
         </div>
       </div>
-      <div class="form-group row next-steps" style="border-top:solid 10px rgba(0,0,0,0.5); padding:10px 0; margin:0;">
+      <div class="form-group row next-steps" ngModelGroup="nextSteps" style="border-top:solid 10px rgba(0,0,0,0.5); padding:10px 0; margin:0;">
         <h5 style="font-weight:bold;">NEXT STEPS <small>(Optional)</small></h5>
         <div class="col-xs-6" style="padding:0 0 0 20px;">
           <label class="form-check">
-            <input class="form-check-input" type="checkbox" name="nextSteps" id="party" value="">
+            <input class="form-check-input" type="checkbox" name="party" id="party" ngModel>
             Sign up for <strong>Party with the Pastors!</strong>
           </label>
           <label class="form-check">
-            <input class="form-check-input" type="checkbox" name="nextSteps" id="baptism" value="">
+            <input class="form-check-input" type="checkbox" name="baptism" id="baptism" ngModel>
             Sign up for <strong>Baptism!</strong>
           </label>
           <label class="form-check">
-            <input class="form-check-input" type="checkbox" name="nextSteps" id="newsletter" value="">
+            <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter" ngModel>
             Sign up for <strong>Harvest's Weekly Newsletter!</strong>
           </label>
         </div>
         <div class="col-xs-6">
           <label class="form-check">
-            <input class="form-check-input" type="checkbox" name="nextSteps" id="discoverHarvest" value="">
+            <input class="form-check-input" type="checkbox" name="discover" id="discover" ngModel>
             Sign up for <strong>Discover Harvest!</strong>
           </label>
           <label class="form-check">
-            <input class="form-check-input" type="checkbox" name="nextSteps" id="serving" value="">
+            <input class="form-check-input" type="checkbox" name="serving" id="serving" ngModel>
             Contact me about <strong>Serving!</strong>
           </label>
         </div>
@@ -148,7 +152,7 @@
         </div>
       </div>
       <div class="form-group text-xs-center" style="border-top:solid 10px rgba(0,0,0,0.5); padding-top:20px; margin-bottom:0;">
-        <button type="button" class="btn btn-success" (click)="submit()">Submit</button>
+        <button type="submit" class="btn btn-success" [disabled]="f.invalid">Submit</button>
         <button type="button" class="btn btn-warning" (click)="cancel()">Cancel</button>
       </div>
     </form>
