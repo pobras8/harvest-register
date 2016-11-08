@@ -2,7 +2,7 @@
   border-radius: 0.25rem;
   padding: 20px;
   background-color: rgba(#fff, 0.5);
-  max-height: 625px;
+  max-height: calc(100vh - 250px);
   overflow-y: auto;
 }
 .add-btn {

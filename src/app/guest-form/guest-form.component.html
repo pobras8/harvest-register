@@ -13,6 +13,27 @@
         </div>
       </div>
       <div class="form-group row">
+          <div class="col-xs-12" formArrayName="family">
+              <div class="row" *ngFor="let family of guestForm.controls.family.controls; let i = index;" [formGroupName]="i">
+                  <div class="col-xs-12 col-sm-4">
+                      <input type="text" class="form-control" placeholder="First Name" formControlName="firstName">
+                  </div>
+                  <div class="col-xs-12 col-sm-4" style="padding-left:0;">
+                    <input type="text" class="form-control" placeholder="Last Name" formControlName="lastName">
+                  </div>
+                  <div class="col-xs-12 col-sm-4" style="padding:0 30px 0 0;">
+                    <select class="form-control" formControlName="relationship">
+                      <option *ngFor="let r of relationshipList" value="{{r}}">{{r}}</option>
+                    </select>
+                  </div>
+                  <button type="button" class="close" *ngIf="guestForm.controls.family.controls.length > 0" (click)="removeFamily(i)" aria-label="Remove" style="position:absolute; right:10px; padding:6px 0;">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <button type="button" class="btn btn-sm add-btn" (click)="addFamily()">+ Add Family Member</button>
+          </div>
+      </div>
+      <div class="form-group row">
         <div class="col-xs-12 col-sm-6" formArrayName="emails">
           <label>Email(s)</label>
           <button type="button" class="btn btn-sm add-btn" (click)="addEmail()">+ Add Email</button>
@@ -20,7 +41,7 @@
             <button type="button" class="close" *ngIf="guestForm.controls.emails.controls.length > 1" (click)="removeEmail(i)" aria-label="Remove" style="position:absolute; right:20px; padding:6px 0;">
               <span aria-hidden="true">&times;</span>
             </button>
-            <input type="Email" class="form-control" [formControlName]="i">
+            <input type="email" class="form-control" [formControlName]="i">
           </div>
         </div>
         <div class="col-xs-12 col-sm-6" formArrayName="phones">

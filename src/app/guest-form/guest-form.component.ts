@@ -26,6 +26,7 @@ import { PrayerRequest } from '../shared/models/prayer-request';
 })
 export class GuestFormComponent implements OnInit {
   public stateList: string[] = ["IN","AK","AL","AR","AZ","CA","CO","CT","DC","DE","FL","GA","GU","HI","IA","ID","IL","KS","KY","LA","MA","MD","ME","MH","MI","MN","MO","MS","MT","NC","ND","NE","NH","NJ","NM","NV","NY","OH","OK","OR","PA","PR","PW","RI","SC","SD","TN","TX","UT","VA","VI","VT","WA","WI","WV","WY"];
+  public relationshipList: string[] = ["Husband","Wife","Mother","Father","Son","Daughter","Grandson","Granddaughter","Sister","Brother","Aunt","Uncle","Niece","Nephew","Cousin(F)","Cousin(M)","Grandfather","Grandmother"];
   public newGuest: Person = new Person();
   public guestForm: FormGroup;
 
@@ -38,6 +39,7 @@ export class GuestFormComponent implements OnInit {
     this.guestForm = new FormGroup({
       firstName: new FormControl(''),
       lastName: new FormControl(''),
+      family: new FormArray([]),
       emails: new FormArray([
         new FormControl('')
       ]),
@@ -61,6 +63,20 @@ export class GuestFormComponent implements OnInit {
         serving: new FormControl('')
       })
     })
+  }
+
+  addFamily() {
+      const control = <FormArray>this.guestForm.controls['family'];
+      control.push(new FormGroup({
+          firstName: new FormControl(''),
+          lastName: new FormControl(''),
+          relationship: new FormControl('')
+      }));
+  }
+
+  removeFamily(i: number) {
+      const control = <FormArray>this.guestForm.controls['family'];
+      control.removeAt(i);
   }
 
   /** Pushes an empty control to the 'emails' form control array
